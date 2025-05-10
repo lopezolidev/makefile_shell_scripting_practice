@@ -1,0 +1,9 @@
+1. Modificar el archivo Makefile utilizado en la parte IV del laboratorio - DONE 
+
+2. Corregir el error presente en el código source_gdb_evaluado02. Debe hacer uso de la herramienta gdb, puede usar una GUI como VS Code para depurar el código. Hacer un informe con capturas del proceso de debug, de los errores encontrados y su solucion. Debe anexar el codigo corregido y funcional.
+
+3. Construya un Shell Script llamado lartc.sh que permita leer de un archivo llamado “parametros txt” y valide los siguientes parámetros:
+
+lartc –i ethN -r nw clase 1 porcentaje 1 ... clase n porcentaje n
+
+lartc -i ethN -voip bw
