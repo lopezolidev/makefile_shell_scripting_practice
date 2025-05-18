@@ -1,0 +1,38 @@
+# ethN invalido
+lartc -i ethA -r 1 00000000 0% # eth con letra
+lartc -i eth -r 1 00000000 0% # eth sin numero
+lartc -i eth01 -r 1 00000000 0% # eth con dos numeros
+
+# -r: nw invalido o conteo incorrecto
+lartc -i eth0 -r abc 00000000 10% # nw no es numero
+lartc -i eth0 -r 0 # nw 0, sin pares - VALIDO
+lartc -i eth0 -r 1 00000000 # nw 1, falta porcentaje
+lartc -i eth0 -r 1 10% # nw 1, falta clase
+lartc -i eth0 -r 2 00000000 10% # nw 2, solo 1 par (count=1, expected=4)
+
+# -r: clase invalida
+lartc -i eth0 -r 1 0000111 10% # clase 7 bits
+lartc -i eth0 -r 1 000011110 10% # clase 9 bits
+lartc -i eth0 -r 1 0000111a 10% # clase con letra (no 0 o 1)
+lartc -i eth0 -r 1 0000 10% # clase con espacio (se parsea mal, count incorrecto)
+
+# -r: porcentaje invalido
+lartc -i eth0 -r 1 00000000 50 # porcentaje sin %
+lartc -i eth0 -r 1 00000000 %50 # porcentaje % antes
+lartc -i eth0 -r 1 00000000 50%abc # porcentaje con extra
+lartc -i eth0 -r 1 00000000 -1% # porcentaje negativo
+lartc -i eth0 -r 1 00000000 101% # porcentaje > 100
+
+# -voip: bw invalido (AHORA SOLO ENTEROS)
+lartc -i eth0 -voip 1500.5 # float - AHORA ERROR
+lartc -i eth0 -voip -10.2 # float - AHORA ERROR
+lartc -i eth0 -voip abc # no numérico (ya cubierto)
+lartc -i eth0 -voip +100 # con + (regex solo acepta - opcional)
+lartc -i eth0 -voip - # solo el signo
+lartc -i eth0 -voip 0 # bw cero - VALIDO
+
+# General / Cantidad de parametros / Modo invalido
+lartc -i eth0 # Muy pocos parametros (faltan mode y args)
+lartc -i eth0 -r # Muy pocos parametros para -r (falta nw y pares)
+lartc -i eth0 -voip # Muy pocos parametros para -voip (falta bw)
+lartc -i eth0 -xyz 123 # Modo no reconocido

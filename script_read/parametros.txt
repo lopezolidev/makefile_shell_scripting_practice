@@ -1,0 +1,27 @@
+lartc -i ethA -r 1 00000000 0%
+lartc -i eth -r 1 00000000 0%
+lartc -i eth01 -r 1 00000000 0%s
+lartc -i eth0 -r abc 00000000 10%
+lartc -i eth0 -r 0 
+lartc -i eth0 -r 1 00000000
+lartc -i eth0 -r 1 10%
+lartc -i eth0 -r 2 00000000 10%
+lartc -i eth0 -r 1 0000111 10%
+lartc -i eth0 -r 1 000011110 10%
+lartc -i eth0 -r 1 0000111a 10%
+lartc -i eth0 -r 1 0000 10%
+lartc -i eth0 -r 1 00000000 50
+lartc -i eth0 -r 1 00000000 %50
+lartc -i eth0 -r 1 00000000 50%abc
+lartc -i eth0 -r 1 00000000 -1%
+lartc -i eth0 -r 1 00000000 101%
+lartc -i eth0 -voip 1500.5
+lartc -i eth0 -voip -10.2
+lartc -i eth0 -voip abc
+lartc -i eth0 -voip +100 
+lartc -i eth0 -voip -
+lartc -i eth0 -voip 0
+lartc -i eth0
+lartc -i eth0 -r 
+lartc -i eth0 -voip
+lartc -i eth0 -xyz 123
